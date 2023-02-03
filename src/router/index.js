@@ -13,16 +13,13 @@ const router = createRouter({
         {
           path: "new",
           name: "new",
-          component: NewMemo,
+          components: { new: NewMemo },
         },
         {
           path: ":id/edit",
           name: "edit",
-          component: EditMemo,
-          props: (route, memo) => ({
-            id: route.params.id,
-            memo: memo,
-          }),
+          components: { edit: EditMemo },
+          props: true,
         },
       ],
     },

@@ -12,9 +12,8 @@ const clickAdd = () => {
 </script>
 
 <template>
-  <div>
-    <textarea v-model="textInput" required></textarea>
-    <button @click="clickAdd">add</button>
+  <textarea v-model="textInput" required />
+  <div class="form_buttons">
+    <button @click="clickAdd" class="add_button">add</button>
   </div>
-  <router-link :to="{ path: '/' }">end</router-link>
 </template>
