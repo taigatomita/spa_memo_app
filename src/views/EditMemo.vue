@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 
 const props = defineProps({
   memos: Array,
@@ -10,10 +10,8 @@ const emits = defineEmits(["editMemo", "deleteMemo"]);
 let textInput = ref("");
 const id = parseInt(props.id);
 
-onMounted(() => {
-  const memo = props.memos.find((memo) => memo.id === id);
-  textInput.value = memo.text;
-});
+const memo = props.memos.find((memo) => memo.id === id);
+textInput.value = memo.text;
 
 const clickEdit = () => {
   emits("editMemo", textInput.value, id);
