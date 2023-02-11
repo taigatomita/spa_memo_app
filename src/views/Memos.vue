@@ -1,14 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 let memos = ref([]);
 
-onMounted(() => {
-  memos.value = JSON.parse(localStorage.getItem("MemoList")) || [];
-});
+memos.value = JSON.parse(localStorage.getItem("MemoList")) || [];
 
 const saveMemos = () => {
   localStorage.setItem("MemoList", JSON.stringify(memos.value));
